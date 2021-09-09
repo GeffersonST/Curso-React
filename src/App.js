@@ -13,10 +13,15 @@ class App extends Component {
   aumentar() {
     let state = this.state;
     state.contador += 1;
+    state.nome = "Emile";
     this.setState(state);
   }
   diminuir() {
     let state = this.state;
+    if (state.contador === 0) {
+      alert("Chegou a zero!");
+      return;
+    }
     state.contador -= 1;
     this.setState(state);
   }
@@ -24,6 +29,7 @@ class App extends Component {
     return (
       <div>
         <h1>Contador</h1>
+        {this.state.nome}
         <h3>
           <button onClick={this.diminuir}> - </button>
           {this.state.contador}
